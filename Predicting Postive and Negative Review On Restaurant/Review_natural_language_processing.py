@@ -27,3 +27,7 @@ for i in range(0,1000):
     
     
 #creating the bag of model
+
+from sklearn.feature_extraction.text import CountVectorizer
+cv = CountVectorizer()
+X = cv.fit_transform(corpus).toarray()
