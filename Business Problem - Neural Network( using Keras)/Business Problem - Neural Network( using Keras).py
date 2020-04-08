@@ -17,15 +17,16 @@ y = dataset.iloc[:, 13].values
 
 # Encoding categorical data
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
-labelencoder_X_1 = LabelEncoder()
-X[:, 1] = labelencoder_X_1.fit_transform(X[:, 1])
+#labelencoder_X_1 = LabelEncoder()
+#X[:, 1] = labelencoder_X_1.fit_transform(X[:, 1])
 labelencoder_X_2 = LabelEncoder()
 X[:, 2] = labelencoder_X_2.fit_transform(X[:, 2])
+"""
 #onehotencoder = OneHotEncoder(categories = [1])
 #X = onehotencoder.fit_transform(X).toarray()
 #X = X[:, 1:]
-"""
-rom sklearn.preprocessing import LabelEncoder, OneHotEncoder
+
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 labelencoder = LabelEncoder()
 X[:, 3] = labelencoder.fit_transform(X[:, 3])
 onehotencoder = OneHotEncoder(categorical_features = [3])
@@ -44,9 +45,9 @@ transformer = ColumnTransformer(
     remainder='passthrough' # donot apply anything to the remaining columns
 )
 X = transformer.fit_transform(X.tolist())
+
+
 """
-
-
 #from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 transformer = ColumnTransformer(
@@ -59,6 +60,7 @@ transformer = ColumnTransformer(
     remainder='passthrough' # donot apply anything to the remaining columns
 )
 X = transformer.fit_transform(X.tolist())
+
 X = X[:, 1:]
 
 # Splitting the dataset into the Training set and Test set
