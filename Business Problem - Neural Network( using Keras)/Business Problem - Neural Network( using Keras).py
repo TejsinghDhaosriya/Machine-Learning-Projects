@@ -86,12 +86,16 @@ classifier = Sequential()
 #classifier.add(Dense(output_dim=6,init='uniform'))
 #Activation function in hidden is relu that is retifier
 #input_dim = 11 inputs not required now
+# units = 6 i.e. 6 nodes 
 classifier.add(Dense(units=6,kernel_initializer='uniform',activation='relu',input_dim = 11))
 
 # Adding Second hidden layer 
 
 classifier.add(Dense(units=6,kernel_initializer='uniform',activation='relu'))
 
+#Adding the output layer
+# sigmoid function = sigmoid
+classifier.add(Dense(units=1,kernel_initializer='uniform',activation='sigmoid'))
 
 
 
