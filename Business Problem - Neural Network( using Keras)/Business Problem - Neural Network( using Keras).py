@@ -84,9 +84,13 @@ classifier = Sequential()
 
 #Adding the first input layer and hidden layer
 #classifier.add(Dense(output_dim=6,init='uniform'))
+#Activation function in hidden is relu that is retifier
+#input_dim = 11 inputs not required now
+classifier.add(Dense(units=6,kernel_initializer='uniform',activation='relu',input_dim = 11))
 
-classifier.add(Dense(units=6,kernel_initializer='uniform',))
+# Adding Second hidden layer 
 
+classifier.add(Dense(units=6,kernel_initializer='uniform',activation='relu'))
 
 
 
