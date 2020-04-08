@@ -21,8 +21,44 @@ labelencoder_X_1 = LabelEncoder()
 X[:, 1] = labelencoder_X_1.fit_transform(X[:, 1])
 labelencoder_X_2 = LabelEncoder()
 X[:, 2] = labelencoder_X_2.fit_transform(X[:, 2])
-onehotencoder = OneHotEncoder(categorical_features = [1])
+#onehotencoder = OneHotEncoder(categories = [1])
+#X = onehotencoder.fit_transform(X).toarray()
+#X = X[:, 1:]
+"""
+rom sklearn.preprocessing import LabelEncoder, OneHotEncoder
+labelencoder = LabelEncoder()
+X[:, 3] = labelencoder.fit_transform(X[:, 3])
+onehotencoder = OneHotEncoder(categorical_features = [3])
 X = onehotencoder.fit_transform(X).toarray()
+Instead of that we can just use OneHotEncoder as shown below.
+
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
+transformer = ColumnTransformer(
+    transformers=[
+        ("OneHot",        # Just a name
+         OneHotEncoder(), # The transformer class
+         [3]              # The column(s) to be applied on.
+         )
+    ],
+    remainder='passthrough' # donot apply anything to the remaining columns
+)
+X = transformer.fit_transform(X.tolist())
+"""
+
+
+#from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import ColumnTransformer
+transformer = ColumnTransformer(
+    transformers=[
+        ("OneHot",        # Just a name
+         OneHotEncoder(), # The transformer class
+         [1]              # The column(s) to be applied on.
+         )
+    ],
+    remainder='passthrough' # donot apply anything to the remaining columns
+)
+X = transformer.fit_transform(X.tolist())
 X = X[:, 1:]
 
 # Splitting the dataset into the Training set and Test set
@@ -36,4 +72,3 @@ X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
 # Part 2 - Now let's make the ANN!
-import keras
