@@ -74,3 +74,29 @@ X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
 # Part 2 - Now let's make the ANN!
+import keras
+from keras.models import Sequential
+from keras.layers import Dense
+
+#Intitializing the ANN
+
+classifier = Sequential()
+
+#Adding the first input layer and hidden layer
+#classifier.add(Dense(output_dim=6,init='uniform'))
+
+classifier.add(Dense(units=6,kernel_initializer='uniform',))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
