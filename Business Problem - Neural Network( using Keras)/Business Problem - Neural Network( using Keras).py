@@ -104,8 +104,13 @@ classifier.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accurac
 
 
 #Fitting the ANN into the training set
-classifier.fit(X_train,y_train,batch_size =10,epochs=100)
+classifier.fit(X_train,y_train,batch_size =10,epochs=150)
 
+#Part 3 . Making prediction and evaluate the model
+
+#Predicting the Test  set results.
+y_pred = classifier.predict(X_test)
+y_pred = (y_pred>0.5) 
 
 
 
