@@ -17,3 +17,14 @@ classifier.add(Conv2D(32,3,3,input_shape=(64,64,3),activation = 'relu'))
 # step 2 pooling
 
 classifier.add(MaxPooling2D(pool_size=(2,2)))
+
+
+#step 3 flattening
+
+classifier.add(Flatten())
+
+#step 4 full connection
+
+classifier.add(Dense(output_dim =128,activation='relu'))  
+
+classifier.add(Dense(output_dim =1,activation='sigmoid'))  
