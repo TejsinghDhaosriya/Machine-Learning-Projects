@@ -11,4 +11,9 @@ from keras.layers import Dense
 #when using tensorflow backend using inputshape("size,size,channe3)
 classifier = Sequential()
 #step 1 convolution
-classifier.add(Conv2d(32,3,3,input_shape(64,64,3),activation = 'relu'))
+classifier.add(Conv2D(32,3,3,input_shape=(64,64,3),activation = 'relu'))
+
+
+# step 2 pooling
+
+classifier.add(MaxPooling2D(pool_size=(2,2)))
